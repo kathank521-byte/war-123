@@ -1,12 +1,8 @@
-from flask import Flask, render_template
+import time
 from datetime import datetime
 
-app = Flask(__name__)
+while True:
+    current_time = datetime.now().strftime("%A, %d %B %Y | %H:%M:%S")
+    print(current_time)
+    time.sleep(1)
 
-@app.route("/")
-def home():
-    current_time = datetime.now().strftime("%A, %d %B %Y | %I:%M:%S %p")
-    return render_template("index.html", time=current_time)
-
-if __name__ == "__main__":
-    app.run(debug=True)
